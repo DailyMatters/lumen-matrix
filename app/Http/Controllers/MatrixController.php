@@ -11,8 +11,8 @@ class MatrixController extends Controller
      */
     public function showWorkingAPI()
     {
-		return response()->json('API Working Correctly.');
+		return response()->json('API Working Correctly.', 200)
+			->header('Content-Type', 'text/plain');
     }
 
-    //
 }
