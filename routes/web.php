@@ -16,3 +16,5 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('matrix/status', ['uses' => 'MatrixController@showWorkingAPI']);
+//$router->get('matrix/mul', ['uses' => 'MatrixController@multiplyMatrix']);
+$router->post('matrix/mul', ['uses' => 'MatrixController@multiplyMatrix']);
