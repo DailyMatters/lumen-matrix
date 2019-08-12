@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\MatrixMultiplierService;
+use App\Services\ConvertToAlphabetService;
 use Illuminate\Http\Request;
 
 class MatrixController extends Controller
@@ -25,10 +26,22 @@ class MatrixController extends Controller
 		$multiplyService = new MatrixMultiplierService();
 		$result = $multiplyService->multiply($parsed_request['m1'], $parsed_request['m2']);
 
-		//return $result;
+		$result = $this->calculateAlphabet($result);
+
 		return response()->json($result, 200);
-		
-		/*$example = $multiplyService->multiply(array(array(2,2)), array(array(1),array(5)));
-		var_dump($example);die;*/
+	}
+
+	private function calculateAlphabet(array $outterArray): array {
+	
+		$res = [];
+
+		foreach($outterArray as $innerArray) {
+			foreach($innerArray as $number){
+				$converterService = new ConvertToAlphabetService();
+				$res[] = $converterService->convert($number);
+			}
+		}
+
+		return $res;
 	}
 }
