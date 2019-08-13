@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Exceptions\MatrixSizeException;
+
 class MatrixMultiplierService {
 
 	//Rows represents matrix 1 and Columns represents matrix2
@@ -9,12 +11,9 @@ class MatrixMultiplierService {
 		$rowCount = count($rows);
 		$columnCount = count($columns[0]);
 		$innerCols = count($columns);
-		//This needs to be changed to throw an exception
+		
 		if ( $innerCols != count($rows[0]) ) {
-			print("ERROR: need to have inner size of matrices match.\n");
-			print("     : trying to multiply a ".count($rows)."x".count($rows[0])." by a ".count($columns)."x".count($columns[0])." matrix.\n");
-			print("\n");
-			exit(1);
+			throw new MatrixSizeException();
 		 }
 
 		$result = array();
@@ -31,7 +30,6 @@ class MatrixMultiplierService {
 				}
 			}
 		}
-	//print_r($result);
     return $result;
 	}
 
