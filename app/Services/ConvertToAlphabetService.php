@@ -6,10 +6,8 @@ class ConvertToAlphabetService {
 
 	public function convert(int $number): string {
 		
-	$alphabet =   array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
-		$alpha_flip = array_flip($alphabet);
+	$alphabet =  array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
 		if($number <= 25){
-		  echo $alphabet[$number];	
 		  return $alphabet[$number];
 		}
 		elseif($number > 25){

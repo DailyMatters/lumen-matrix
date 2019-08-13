@@ -12,3 +12,9 @@ Run unit tests with vendor/bin/phpunit.
 
 ### cUrl to throw MatrixSizeException
 `curl -X POST -H "Content-Type: application/d '{"m1": [[1],[5]], "m2": [[2,2],[2,3]]}' http://localhost:8000/matrix/mul/`
+
+#### To Do
+- [ ] Fix character duplication on results
+- [ ] Finish testing alphabet service
+- [ ] Test MatrixMultiplier service
+- [ ] Document decisions and improve README
